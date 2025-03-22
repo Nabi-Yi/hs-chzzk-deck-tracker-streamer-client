@@ -1,0 +1,28 @@
+VSVersionInfo(
+  ffi=FixedFileInfo(
+    filevers=(1, 0, 1, 0),
+    prodvers=(1, 0, 1, 0),
+    mask=0x3f,
+    flags=0x0,
+    OS=0x40004,
+    fileType=0x1,
+    subtype=0x0,
+    date=(0, 0)
+    ),
+  kids=[
+    StringFileInfo(
+      [
+      StringTable(
+        u'040904B0',
+        [StringStruct(u'CompanyName', u'nabiyi926@gmail.com'),
+        StringStruct(u'FileDescription', u'하스스톤-치지직 덱 트래커 스트리머 클라이언트'),
+        StringStruct(u'FileVersion', u'1.0.1'),
+        StringStruct(u'InternalName', u'hs-chzzk-streamer-client'),
+        StringStruct(u'LegalCopyright', u'Copyright (c) 2025'),
+        StringStruct(u'OriginalFilename', u'Hearthstone-Chzzk-Streamer-Client.exe'),
+        StringStruct(u'ProductName', u'Hearthstone-Chzzk-Streamer-Client'),
+        StringStruct(u'ProductVersion', u'1.0.1')])
+      ]), 
+    VarFileInfo([VarStruct(u'Translation', [1033, 1200])])
+  ]
+) 

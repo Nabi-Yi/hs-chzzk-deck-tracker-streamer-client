@@ -1,0 +1,8 @@
+requests
+python-dotenv
+setuptools
+PyQt5
+pyinstaller
+configparser 
+hearthstone
+aniso8601
