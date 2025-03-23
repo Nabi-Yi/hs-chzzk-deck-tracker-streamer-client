@@ -200,29 +200,37 @@ class HSLogWatcher:
     def get_last_game_players(self):
         try:
             games = self.parser.games
-            last_game = games[-1]
-            # 플레이어 정보 가져오기
-            fExporter = FriendlyPlayerExporter(last_game)
-            myId = fExporter.export()
             # 게임 정보 가져오기
+            last_game = games[-1]
             self.exporter = EntityTreeExporter(last_game)
             exported_game = self.exporter.export().game
             if not exported_game:
                 return None
-            # 플레이어 정보 매칭
-            players = exported_game.players
-            me = None
-            enemy = None
-            for player in players:
-                if player.player_id == myId:
-                    me = player
-                else:
-                    enemy = player
-            return me, enemy, exported_game
+            
+            # 플레이어 정보 가져오기
+            try:
+                fExporter = FriendlyPlayerExporter(last_game)        
+                myId = fExporter.export()
+        
+                # 플레이어 정보 매칭
+                players = exported_game.players
+                me = None
+                enemy = None
+                for player in players:
+                    if player.player_id == myId:
+                        me = player
+                    else:
+                        enemy = player
+                return me, enemy, exported_game
+            except Exception as e:
+                me = last_game.players[0]
+                enemy = last_game.players[1]
+                return me, enemy, exported_game
 
         except Exception as e:
             print(e)
             traceback.print_exc()
+
             # if self.callback:
             #     self.callback(f"마지막 게임 가져오기 오류 발생: {str(e)}")
             return None
